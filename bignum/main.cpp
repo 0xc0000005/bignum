@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
     std::cout << "Enter the first long number: ";
 
     str = input_stream.readLine();
-    CBigNum a{ str };
+    BigNumber a{ str };
 
     std::cout << "Enter the second long number: ";
     str = input_stream.readLine();
-    CBigNum b{ str };
+    BigNumber b{ str };
 
     auto c = a + b;
 

@@ -3,16 +3,16 @@
 #include <cstdint>
 #include <vector>
 
-class CBigNum
+class BigNumber
 {
 public:
-    CBigNum() {}
-    CBigNum(QString numstr);
-    CBigNum(const CBigNum&);
-    ~CBigNum();
+    BigNumber() {}
+    BigNumber(QString numstr);
+    BigNumber(const BigNumber&);
+    ~BigNumber();
     QString toString();
-    bool operator>(const CBigNum&);
-    CBigNum operator+(const CBigNum&);
+    bool operator>(const BigNumber&);
+    BigNumber operator+(const BigNumber&);
 
 private:
 

@@ -4,7 +4,7 @@
 #include "BigNum.h"
 
 
-CBigNum::CBigNum(QString numstr)
+BigNumber::BigNumber(QString numstr)
 {
     for (auto i = numstr.begin(); i != numstr.end() && i->isDigit(); ++i) {
         mul_10();
@@ -12,22 +12,22 @@ CBigNum::CBigNum(QString numstr)
     }
 }
 
-CBigNum::CBigNum(const CBigNum& other)
+BigNumber::BigNumber(const BigNumber& other)
 {
     num = other.num;
 }
 
-CBigNum::~CBigNum()
+BigNumber::~BigNumber()
 {
 }
 
-QString CBigNum::toString()
+QString BigNumber::toString()
 {
     if (num.empty())
         return "0";
 
     QString result;
-    CBigNum n{ *this };
+    BigNumber n{ *this };
     while (!n.num.empty()) {
         auto r = n.div_10();
         result.push_front(QString::number(r));
@@ -36,7 +36,7 @@ QString CBigNum::toString()
     return result;
 }
 
-bool CBigNum::operator>(const CBigNum & other)
+bool BigNumber::operator>(const BigNumber & other)
 {
     if (num.size() > other.num.size())
         return true;
@@ -45,9 +45,9 @@ bool CBigNum::operator>(const CBigNum & other)
     return false;
 }
 
-CBigNum CBigNum::operator+(const CBigNum & other)
+BigNumber BigNumber::operator+(const BigNumber & other)
 {
-    CBigNum result;
+    BigNumber result;
     uint16_t r = 0;
 
     auto i = num.begin();
@@ -76,7 +76,7 @@ CBigNum CBigNum::operator+(const CBigNum & other)
     return result;
 }
 
-void CBigNum::mul_10()
+void BigNumber::mul_10()
 {
     uint16_t r = 0;
 
@@ -89,7 +89,7 @@ void CBigNum::mul_10()
         num.push_back(r);
 }
 
-uint16_t CBigNum::div_10()
+uint16_t BigNumber::div_10()
 {
     if (num.empty())
         return 0;
@@ -120,7 +120,7 @@ uint16_t CBigNum::div_10()
     return r;
 }
 
-void CBigNum::add(uint16_t n)
+void BigNumber::add(uint16_t n)
 {
     uint16_t r = n;
 
