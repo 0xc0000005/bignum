@@ -21,7 +21,7 @@ BigNumber::~BigNumber()
 {
 }
 
-QString BigNumber::toString()
+QString BigNumber::toString() const
 {
     if (num.empty())
         return "0";
@@ -36,16 +36,7 @@ QString BigNumber::toString()
     return result;
 }
 
-bool BigNumber::operator>(const BigNumber & other)
-{
-    if (num.size() > other.num.size())
-        return true;
-    if (num.size() == other.num.size() && num[num.size() - 1] > other.num[other.num.size() - 1])
-        return true;
-    return false;
-}
-
-BigNumber BigNumber::operator+(const BigNumber & other)
+BigNumber BigNumber::operator+(const BigNumber & other) const
 {
     BigNumber result;
     uint16_t r = 0;

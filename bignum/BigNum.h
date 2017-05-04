@@ -10,9 +10,8 @@ public:
     BigNumber(QString numstr);
     BigNumber(const BigNumber&);
     ~BigNumber();
-    QString toString();
-    bool operator>(const BigNumber&);
-    BigNumber operator+(const BigNumber&);
+    QString toString() const;
+    BigNumber operator+(const BigNumber&) const;
 
 private:
 
